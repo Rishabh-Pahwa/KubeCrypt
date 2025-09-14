@@ -1,0 +1,35 @@
+name: Docker Build Verify
+
+# Controls when the action will run.
+# Triggers the workflow on push or pull request events but only for the "main" branch.
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Step 1: Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Docker Buildx, a tool for building Docker images
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Step 3: Build the Docker image
+      # This step uses the official Docker build-push action.
+      # We set `push: false` so it only builds the image and doesn't push it anywhere.
+      - name: Build the Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: . # Use the current directory as the build context
+          push: false # Do not push the image
+          tags: KubeCrypt:latest # Tag the image for the build process
