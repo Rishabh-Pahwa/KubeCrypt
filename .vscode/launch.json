@@ -1,0 +1,34 @@
+// {
+// 	// Use IntelliSense to learn about possible attributes.
+// 	// Hover to view descriptions of existing attributes.
+// 	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+// 	"version": "0.2.0",
+// 	"configurations": [
+// 		{
+// 			"type": "dockerfile",
+// 			"request": "launch",
+// 			"name": "Docker: Build",
+// 			"dockerfile": "Dockerfile",
+// 			"contextPath": "${workspaceFolder}"
+// 		}
+// 	]
+// }
+
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug",
+			"type": "node",
+			"request": "attach",
+			"port": 3663,
+			"address": "localhost",
+			"localRoot": "${workspaceFolder}/src",
+			"remoteRoot": "/home/node/app/src",
+			"restart": true,
+			"timeout": 30000, // Increase timeout to 30 seconds
+			"preLaunchTask": "docker-compose-up",
+			"postDebugTask": "docker-compose-down"
+		}
+	]
+}

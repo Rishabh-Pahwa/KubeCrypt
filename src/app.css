@@ -1,0 +1,229 @@
+@import 'tailwindcss';
+@import 'flowbite';
+
+@layer base {
+	h1 {
+		@apply p-2 text-2xl;
+	}
+	input,
+	select,
+	textarea,
+	button {
+		@apply outline-none focus:outline-none;
+	}
+	p {
+		@apply bg-transparent;
+	}
+}
+
+:root {
+	--primary: #7480ff;
+	--surface: #111827;
+	--accent: #00cdb7;
+	--bodytext: #ffffff;
+	--navtext: #000000;
+	--secondary: #ff52d9;
+	--danger: #ff0000;
+	--info: #8be9fd;
+	--success: #50fa7b;
+	--warning: #f1fa8c;
+}
+
+body {
+	background: var(--surface);
+	color: var(--bodytext);
+}
+
+.contain {
+	padding: 10px;
+	height: 100vh;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	background: var(--surface);
+	color: var(--bodytext);
+}
+
+.theme-selector {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.theme-selector select {
+	border: 1px solid var(--primary);
+	border-radius: 4px;
+	background-color: rgba(255, 255, 255, 0.1);
+	/* Adjust the alpha value for transparency */
+	color: inherit;
+	/* Ensure the text color is inherited from the parent */
+	width: 200px;
+}
+
+.theme-selector select option {
+	background-color: var(--surface);
+	/* Background color for options */
+	color: inherit;
+	/* Ensure the text color is inherited */
+}
+
+.color-box {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	border: 1px solid var(--primary);
+	background-color: rgba(255, 255, 255, 0.1);
+	padding: 4px;
+	border-radius: 8px;
+}
+
+.color-sample {
+	width: 40px;
+	height: 40px;
+	border-radius: 0.5rem;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	transition: transform 0.2s;
+	/* Smooth transition for scaling effect */
+}
+
+.color-sample:hover {
+	transform: scale(1.1);
+	/* Scale up on hover */
+}
+
+.theme-preview {
+	display: flex;
+	gap: 15px;
+}
+
+p {
+	background-color: transparent !important;
+}
+.color-swatch {
+	flex: 1;
+	border-radius: 4px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.color-swatch h3 {
+	margin: 0;
+	padding: 10px 0;
+	font-size: 1.2em;
+	color: white;
+}
+
+.swatches {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1px;
+}
+
+.swatch {
+	padding: 8px;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* .tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+  	position: absolute;
+	z-index: -1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+	visibility: visible;
+  }
+   */
+
+/* Tooltip container */
+.tooltip {
+	position: relative; /* Make tooltip relative to parent */
+	display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+	/* visibility: hidden;  */
+	display: none;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px;
+	position: absolute; /* Position the tooltip */
+	z-index: 1000; /* Place it on top of the parent */
+	bottom: 125%; /* Position above the element */
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0;
+	transition: opacity 0.3s;
+	pointer-events: none;
+}
+
+/* Tooltip arrow (optional) */
+.tooltip .tooltiptext::after {
+	content: '';
+	position: absolute;
+	top: 100%; /* Position the arrow at the bottom of the tooltip */
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: black transparent transparent transparent;
+	z-index: 1;
+}
+
+/* Show the tooltip on hover */
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+	display: block;
+}
+
+input,
+select,
+textarea,
+button {
+	outline: 0px;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f3f4f6; /* Tailwind gray-100 */
+	border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #d1d5db; /* Tailwind gray-300 */
+	border-radius: 9999px;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+	::-webkit-scrollbar-track {
+		background: #374151; /* Tailwind neutral-700 */
+	}
+	::-webkit-scrollbar-thumb {
+		background: #6b7280; /* Tailwind neutral-500 */
+	}
+}

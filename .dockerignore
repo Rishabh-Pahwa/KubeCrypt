@@ -1,0 +1,22 @@
+# Node dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-lock.yaml
+
+# Build output
+build
+.svelte-kit
+dist
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
