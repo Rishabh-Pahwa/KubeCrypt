@@ -32,4 +32,4 @@ jobs:
         with:
           context: . # Use the current directory as the build context
           push: false # Do not push the image
-          tags: KubeCrypt:latest # Tag the image for the build process
+          tags: kubecrypt:latest # Tag the image for the build process
