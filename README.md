@@ -42,7 +42,7 @@ Prefer not to use the hosted version? No problem.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/kubecrypt.git
+git clone https://github.com/Rishabh-Pahwa/KubeCrypt.git
 cd kubecrypt
 ```
 
