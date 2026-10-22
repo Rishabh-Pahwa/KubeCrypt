@@ -31,8 +31,6 @@
 4. Click **Generate Sealed Secret** — your output is ready!
 5. *(Optional)* Use the built-in base64 decoder for quick lookups.
 
-> ✅ Everything is handled **client-side**. Your `.pem` never leaves your device.
-
 ---
 
 ## 🐳 Run Locally with Docker
