@@ -140,6 +140,10 @@
 		});
 
 		const data = await response.json();
+		if (!response.ok) {
+      		showToast(data.error ?? 'Sealing failed.');
+      		return;
+    	}
 		sealedYaml = yaml.dump(yaml.load(data.sealed)) || 'Sealing failed.';
 	}
 
